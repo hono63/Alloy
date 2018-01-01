@@ -62,4 +62,4 @@ assert addLocal { // 違う名前の登録は影響ないよね。
 }
 
 check delUndoesAdd1 for 3
-check delUndoesAdd2 for 10 but 3 Book // 妥当だと証明されたわけではない。
+check delUndoesAdd2 for 10 but 3 Book // 妥当だと数学的に証明されたわけではないが、膨大なテストケースを網羅できている。
