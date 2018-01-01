@@ -56,7 +56,10 @@ assert addIdempotent { // 同じ名前を追加しても帳bは変化しない�
 	all b,b',b'': Book, n: Name, a:Addr |
 		add[b, b', n, a] and add[b', b'', n, a] implies b'.addr = b''.addr
 }
-assert addLocal
+assert addLocal { // 違う名前の登録は影響ないよね。
+	all b,b': Book, n,n': Name, a: Addr |
+		add[b,b',n,a] and n != n' implies lookup[b,n'] = lookup[b',n']
+}
 
 check delUndoesAdd1 for 3
 check delUndoesAdd2 for 10 but 3 Book // 妥当だと証明されたわけではない。
