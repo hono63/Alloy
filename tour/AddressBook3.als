@@ -41,9 +41,9 @@ fact traces {
 	  some n: Name, t: Target | add[b,b',n,t] or del[b,b',n,t]
 	}
 
-pred show1 (b: Book) {some b.addr}
-pred show2 (b: Book) {some Alias.(b.addr) } 
-pred show3 {}
+private pred show1 (b: Book) {some b.addr}
+private pred show2 (b: Book) {some Alias.(b.addr) } 
+private pred show3 {}
 //run show2 for 3 but 1 Book
 run show3 for 5
 
