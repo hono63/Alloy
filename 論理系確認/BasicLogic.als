@@ -38,7 +38,7 @@ pred show2 {
 	#Addr > 0
 	}
 
-pred show3 (b:Book) {
+pred show3 (b:Book) { // 成功
 	#Group = 1 
 	all g:Group | g in b.names and g.(b.addr) in Alias
 	#Alias = 2 
