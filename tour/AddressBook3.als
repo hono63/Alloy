@@ -44,8 +44,8 @@ fact traces {
 private pred show1 (b: Book) {some b.addr}
 private pred show2 (b: Book) {some Alias.(b.addr) } 
 private pred show3 {}
-//run show2 for 3 but 1 Book
-run show3 for 5
+run show1 for 5
+//run show3 for 5
 
 //-----------------------------------------------------------------//
 
