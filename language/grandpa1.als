@@ -4,7 +4,9 @@ module language/grandpa1
 abstract sig Person 
 {
 	father: lone Man,
-	mother: lone Woman
+	mother: lone Woman,
+	//Lfather: mother.husband - father, //上手くいかない…
+	//Lmother: father.wife    - mother,
 }
 sig Man extends Person
 {
@@ -15,10 +17,17 @@ sig Woman extends Person
 	husband: lone Man
 }
 
-fact 
-{
+fact Biology
+{// 自分の祖先にはなれない
 	no p:Person | p in p.^(mother + father)
-	wife = ~husband // wifeはhusbandの転置である。
+}
+fact Terminology
+{// wifeはhusbandの転置である。
+	wife = ~husband 
+}
+fact SocialConvention
+{// 近親相姦を避ける
+	no (wife + husband) & ^(mother + father) 
 }
 
 assert NoSelfFather
@@ -29,7 +38,10 @@ check NoSelfFather
 
 fun grandpas (p:Person): set Person
 {
-	p.(mother + father).father
+	//p.(mother + father).father
+	// 継母、継父を含めるようにする。
+	let parent = mother + father + father.wife + mother.husband |
+	  p.parent.parent & Man
 }
 pred ownGrandpa (p:Person)
 {
