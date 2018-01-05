@@ -5,8 +5,12 @@ abstract sig Person
 {
 	father: lone Man,
 	mother: lone Woman,
-	//Lfather: mother.husband - father, //上手くいかない…
-	//Lmother: father.wife    - mother,
+	Lfather: lone Man,
+	Lmother: lone Woman,
+}
+{
+	all f:Lfather | f in mother.husband - father
+	all m:Lmother | m in father.wife - mother
 }
 sig Man extends Person
 {
