@@ -9,9 +9,13 @@ abstract sig Person
 	Lmother: lone Woman,
 }
 {
-	all f:Lfather | f in mother.husband - father
-	all m:Lmother | m in father.wife - mother
+	Lfather = mother.husband - father
+	Lmother = father.wife - mother
 }
+/*fact ParentInLow
+{
+	all p:Person | 
+}*/
 sig Man extends Person
 {
 	wife: lone Woman
@@ -33,6 +37,13 @@ fact SocialConvention
 {// 近親相姦を避ける
 	no (wife + husband) & ^(mother + father) 
 }
+
+pred show_sample (p:Person)
+{
+	one p.Lfather
+	one p.Lmother
+}
+run show_sample for 6
 
 assert NoSelfFather
 {
