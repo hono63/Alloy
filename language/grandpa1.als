@@ -38,10 +38,10 @@ fact SocialConvention
 	no (wife + husband) & ^(mother + father) 
 }
 
-pred show_sample (p:Person)
+pred show_sample (p1,p2:Person)
 {
-	one p.Lfather
-	one p.Lmother
+	one p1.Lfather
+	one p2.Lmother
 }
 run show_sample for 6
 
