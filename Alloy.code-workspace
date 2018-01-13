@@ -5,6 +5,40 @@
 		}
 	],
 	"settings": {
-		"git.ignoreLimitWarning": true
-	}
+		"git.ignoreLimitWarning": true,
+
+		// temporally
+		"vim.hlsearch": true,
+		"vim.searchHighlightColor":"rgba(255, 255, 150, 0.3)",
+		"vim.useSystemClipboard": true,
+
+		/*"vim.insertModeKeyBindingsNonRecursive": [
+			{
+				//"before": 
+			}
+		],*/
+
+		"vim.otherModesKeyBindingsNonRecursive": [
+			{
+				"before": ["<C-j>"],
+				"after": ["<C-e>", "j"]
+			},
+			{
+				"before": ["<C-k>"],
+				"after": ["<C-y>", "k"]
+			},
+			{
+				"before": ["D"],
+				"after": ["d", "d"]
+			},
+			{
+				"before": ["<C-u>"],
+				"after": ["1", "0", "k"]
+			},
+			{
+				"before": ["<C-d>"],
+				"after": ["1", "0", "j"]
+			},
+		],
+	},
 }
